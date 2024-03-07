@@ -5,8 +5,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class FunRestController {
+    
     // expose a "/" endpoint that returns a "Hello World."
-
     @GetMapping
     public String sayHello() {
         return "Hello bitches";
