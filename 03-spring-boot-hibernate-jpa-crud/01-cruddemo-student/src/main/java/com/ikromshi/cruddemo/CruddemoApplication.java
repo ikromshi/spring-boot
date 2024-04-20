@@ -19,7 +19,8 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) { // spring will inject the bean; diff between repo, bean, and component
 		return runner -> {
 			// createStudent(studentDAO);
-			createMultipleStudents(studentDAO);
+			// createMultipleStudents(studentDAO);
+			reaadStudent(studentDAO);
 		};
 	}
 
@@ -48,5 +49,25 @@ public class CruddemoApplication {
 		studentDAO.save(student1);
 		studentDAO.save(student2);
 		studentDAO.save(student3);
+	}
+
+	private void reaadStudent(StudentDAO studentDAO) {
+		// create a student object
+		System.out.println("Creating a student object...");
+		Student student = new Student("Ikrom", "Numonov", "email@ikromshi.com");
+		
+		// save the student object
+		System.out.println("Saving a student object...");
+		studentDAO.save(student);
+
+		// display the student object
+		System.out.println("Saved student: " + student.getId());
+
+		// retreive the student object based on the id: primary key
+		System.out.println("Retreiving a student object with id: " + student.getId());
+		Student tempStudent = studentDAO.findById(student.getId());
+		
+		// display the student object
+		System.out.println("Retreived student: " + tempStudent);
 	}
 }
