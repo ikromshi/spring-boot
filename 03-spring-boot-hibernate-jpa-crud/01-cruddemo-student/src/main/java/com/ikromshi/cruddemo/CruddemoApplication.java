@@ -25,7 +25,9 @@ public class CruddemoApplication {
 			// reaadStudent(studentDAO);
 			// queryForStudents(studentDAO);
 			// queryForStudentsByLastName(studentDAO);
-			updateStudent(studentDAO);
+			// updateStudent(studentDAO);
+			// deleteStudent(studentDAO);
+			deleteAllStudents(studentDAO);
 		};
 	}
 
@@ -111,5 +113,16 @@ public class CruddemoApplication {
 
 		// display updated student
 		System.out.println("Updated Student: " + tempStudent);
+	}
+
+	private void deleteStudent(StudentDAO studentDAO) {
+		int studentId = 3;
+		System.out.println("Deleting a student with ID: " + studentId);
+		studentDAO.delete(studentId);
+	}
+
+	private void deleteAllStudents(StudentDAO studentDAO) {
+		int numRowsDeleted = studentDAO.deleteAll();
+		System.out.println("Number of rows deleted: " + numRowsDeleted);
 	}
 }
