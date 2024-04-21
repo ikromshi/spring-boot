@@ -21,13 +21,13 @@ public class CruddemoApplication {
 	public CommandLineRunner commandLineRunner(StudentDAO studentDAO) { // spring will inject the bean; diff between repo, bean, and component
 		return runner -> {
 			// createStudent(studentDAO);
-			// createMultipleStudents(studentDAO);
+			createMultipleStudents(studentDAO);
 			// reaadStudent(studentDAO);
 			// queryForStudents(studentDAO);
 			// queryForStudentsByLastName(studentDAO);
 			// updateStudent(studentDAO);
 			// deleteStudent(studentDAO);
-			deleteAllStudents(studentDAO);
+			// deleteAllStudents(studentDAO);
 		};
 	}
 
