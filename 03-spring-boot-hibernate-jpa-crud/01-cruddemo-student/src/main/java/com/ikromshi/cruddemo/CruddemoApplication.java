@@ -1,5 +1,7 @@
 package com.ikromshi.cruddemo;
 
+import java.util.List;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,7 +22,8 @@ public class CruddemoApplication {
 		return runner -> {
 			// createStudent(studentDAO);
 			// createMultipleStudents(studentDAO);
-			reaadStudent(studentDAO);
+			// reaadStudent(studentDAO);
+			queryForStudents(studentDAO);
 		};
 	}
 
@@ -69,5 +72,15 @@ public class CruddemoApplication {
 		
 		// display the student object
 		System.out.println("Retreived student: " + tempStudent);
+	}
+
+	private void queryForStudents(StudentDAO studentDAO) {
+		// get a list of students
+		List<Student> theStudents = studentDAO.findAll();
+
+		// display the students
+		for (Student student : theStudents) {
+			System.out.println(student);
+		}
 	}
 }
